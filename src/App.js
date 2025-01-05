@@ -17,9 +17,20 @@ function App() {
   // },[]);
 
   //variation 03 - on the first render + whenever dependency changes | look like first variation
+  // useEffect(() => {
+  //   console.log('change observed')
+  // }, [name]);   // change observe - when name value change
+
+  //variation 04 - to handle unmounting of a component 
+  //first remove listner then added
   useEffect(() => {
-    console.log('change observed')
-  }, [name]);   // change observe - when name value change
+    //add event listner
+    console.log('listner added');
+
+    return () => {
+      console.log("listner removed")
+    }
+  }, [text]); 
 
   function changeHandler(eve) {
     console.log(text);
